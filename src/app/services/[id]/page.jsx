@@ -1,6 +1,6 @@
-import Link from "next/link";
+import React from "react";
 
-const ServicesPage = () => {
+const ServiceDetailsPage = ({ params }) => {
   const data = [
     {
       _id: "65f1a2b3c4d5e6f7g8h9i0j1",
@@ -43,25 +43,17 @@ const ServicesPage = () => {
         "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&auto=format&fit=crop&q=60",
     },
   ];
+  const id = params.id;
+  const singleData = data.find((d) => d._id == id);
 
   return (
     <div>
-      <p className="text-bold text-3xl flex items-center justify-center">
-        Services Page
-      </p>
-      <div className="flex flex-col gap-5">
-        {data.map((d) => {
-          return (
-            <div key={d._id}>
-              <Link href={`/services/${d._id}`}>
-                <img src={d.service_image} />
-              </Link>
-            </div>
-          );
-        })}
-      </div>
+      <h1>Service Details Page</h1>
+      <p className="font-medium text-lg">ID: {id}</p>
+      <p>{singleData.title}</p>
+      <img src={singleData.service_image} alt={singleData.title} />
     </div>
   );
 };
 
-export default ServicesPage;
+export default ServiceDetailsPage;

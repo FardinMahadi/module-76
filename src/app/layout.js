@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NavBar />
-        <main className="h-screen h-max-[600px] flex items-center justify-center font-bold text-3xl">
+        <main className="min-h-screen flex items-center justify-center font-bold text-3xl py-20">
           {children}
         </main>
         <footer className="text-center bg-slate-700">
